@@ -5,21 +5,21 @@
 # Install
 ```
 cd ~/ros2_ws/src
-git clone --recursive https://github.com/rsasaki0109/littleslam_ros2
+git clone --recursive https://github.com/eieioF11/littleslam_ros2.git
 cd ~/ros2_ws/
-colcon build  
-``` 
+colcon build --symlink-install
+```
 
-# Run  
+# Run
 ```
-ros2 run littleslam_ros2 littleslam_ros2  
+ros2 run littleslam_ros2 littleslam_ros2
 ```
-# IO  
-sub  
+# IO
+sub
 - sensor_msgs::msg::LaserScan ("scan")
-- odom (tf2 "base_link"->"odom")(optional,with use_odom:=true)  
+- odom (tf2 "base_link"->"odom")(optional,with use_odom:=true)
 
-pub  
+pub
 - sensor_msgs::msg::PointCloud2 ("icp_map")
 - nav_msgs::msg::Path ("path")
 - nav_msgs::msg::PoseStamped ("current_pose")
@@ -35,6 +35,6 @@ rviz2 -d config/demo.rviz
 
 ![demo](./littleslam.png)  
 
-# Reference  
-[Masahiro Tomono,『introduction to SLAM』](https://www.ohmsha.co.jp/book/9784274221668/)(in japanese)  
-[LittleSLAM](https://github.com/furo-org/LittleSLAM.git)  
+# Reference
+[Masahiro Tomono,『introduction to SLAM』](https://www.ohmsha.co.jp/book/9784274221668/)(in japanese)
+[LittleSLAM](https://github.com/furo-org/LittleSLAM.git)

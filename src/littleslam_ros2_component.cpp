@@ -56,14 +56,14 @@ bool Littleslam::make_scan2d(Scan2D &scan2d, const sensor_msgs::msg::LaserScan::
         tf2::Stamped<tf2::Transform> tr;
 
         try{
-            builtin_interfaces::msg::Time time_stamp = scan->header.stamp;
-            tf2::TimePoint time_point = tf2::TimePoint(
-                std::chrono::seconds(time_stamp.sec) +
-                std::chrono::nanoseconds(time_stamp.nanosec));
-            tf2::TimePoint time_out;
+            // builtin_interfaces::msg::Time time_stamp = scan->header.stamp;
+            // tf2::TimePoint time_point = tf2::TimePoint(
+            //     std::chrono::seconds(time_stamp.sec) +
+            //     std::chrono::nanoseconds(time_stamp.nanosec));
+            // tf2::TimePoint time_out;
 
             geometry_msgs::msg::TransformStamped tf = tfbuffer.lookupTransform(
-                "/odom", "/base_link", time_point);
+                "odom", "base_link", rclcpp::Time(0),tf2::durationFromSec(0.0));
 
             tf2::fromMsg(tf, tr);
         }
