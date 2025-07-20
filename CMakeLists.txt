@@ -10,10 +10,13 @@ find_package(nav_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
+find_package(tf2_eigen REQUIRED)
 find_package(pcl_conversions REQUIRED)
+find_package(laser_geometry REQUIRED)
 
 find_package(Eigen3)
 find_package (PCL 1.8 REQUIRED)
@@ -42,9 +45,12 @@ ament_target_dependencies(littleslam_ros2_component
   rclcpp_components
   sensor_msgs
   nav_msgs
+  geometry_msgs
+  laser_geometry
   tf2
   tf2_ros
   tf2_geometry_msgs
+  tf2_eigen
   pcl_conversions
   class_loader
   )
@@ -70,8 +76,12 @@ target_link_libraries(${PROJECT_NAME}
 ament_target_dependencies(${PROJECT_NAME}
   rclcpp
   sensor_msgs
+  geometry_msgs
+  nav_msgs
+  laser_geometry
   tf2
   tf2_ros
+  tf2_eigen
   tf2_geometry_msgs
 )
 
